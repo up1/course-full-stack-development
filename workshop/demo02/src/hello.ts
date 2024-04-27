@@ -1,5 +1,5 @@
-export const sayHi = () => {
-  return 'Hello, World!';
-}
+export const sayHi = () => 'Hello, World!';
+
+const a = 1;
 
 console.log(sayHi());

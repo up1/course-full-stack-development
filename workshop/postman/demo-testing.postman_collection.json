@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "22204db0-2a94-4b5f-8490-5097a9252151",
+		"name": "demo-testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1453931",
+		"_collection_link": "https://red-firefly-245852.postman.co/workspace/fullstack~60adbc82-ea9c-4bae-bc8d-584832b78279/collection/1453931-22204db0-2a94-4b5f-8490-5097a9252151?action=share&source=collection_link&creator=1453931"
+	},
+	"item": [
+		{
+			"name": "Get current auth user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"MyHelpers.login(pm,'','')"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{USER_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummyjson.com/auth/me",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"MyHelpers = {",
+					"    login(pm, username, password) {",
+					"        const config = {",
+					"            method: 'POST',",
+					"            url: 'https://dummyjson.com/auth/login',",
+					"            header: {",
+					"                'Content-Type': 'application/json'",
+					"            },",
+					"            body: {",
+					"                mode: 'raw',",
+					"                raw: JSON.stringify({",
+					"                    username: 'kminchelle',",
+					"                    password: '0lelplR'",
+					"                })",
+					"            }",
+					"        };",
+					"         pm.sendRequest(config, (err, response) => {",
+					"            if (err) {",
+					"                console.log('Error:', err);",
+					"            } else {",
+					"                console.log('Pre-request script response:', response.json());",
+					"                pm.collectionVariables.set(\"USER_TOKEN\", response.json().token);",
+					"            }",
+					"        });",
+					"    }",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "XXX",
+			"value": ""
+		},
+		{
+			"key": "USER_TOKEN",
+			"value": ""
+		}
+	]
+}

@@ -1,6 +1,8 @@
-export const sayHi = () => 'Hello, World!';
+const sayHi = () => 'Hello, World!';
+
+sayHi();
 
 const a = 1;
 
-console.log(sayHi());
-console.log(a);
+// console.log(sayHi());
+// console.log(a);

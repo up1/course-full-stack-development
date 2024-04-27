@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve": "nodemon --watch 'src/**/*.ts' --exec ts-node src/server.ts",
     "prepare": "husky",
     "precommit": "npm run lint-fix && npm run pretty",
     "dev": "tsc && node build/hello.js ",

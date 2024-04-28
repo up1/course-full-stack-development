@@ -1,4 +1,4 @@
-# Course Full Stack Development
+# Course Full Stack Development 101
 * Frontend
   * TypeScript
   * NuxtJS

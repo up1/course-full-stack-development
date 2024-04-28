@@ -3,6 +3,11 @@ WORKDIR /app
 COPY package*.json .
 RUN npm install
 COPY . . 
+COPY ./prisma ./prisma
+COPY .env .
+RUN npm run db:migrate
+RUN npm run db:push
+RUN npm test
 RUN npx tsc
 
 FROM node:18-alpine3.18

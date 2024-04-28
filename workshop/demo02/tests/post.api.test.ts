@@ -12,11 +12,11 @@ test('POST /posts :: Create a new post', async () => {
   const response = await request(app)
     .post('/posts')
     .send({
-      title: 'title',
+      title: 'title2',
       content: 'content',
     });
 
   expect(response.status).toBe(200);
-  expect(response.body).toHaveProperty('title', 'title');
+  expect(response.body).toHaveProperty('title', 'title2');
   expect(response.body).toHaveProperty('content', 'content');
 });
